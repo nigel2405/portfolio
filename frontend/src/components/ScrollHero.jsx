@@ -58,7 +58,7 @@ export default function ScrollHero() {
               </p>
               
               <div className="inline-block px-4 py-2 bg-amethyst-primary/20 border border-amethyst-primary/50 rounded-full font-mono text-xs text-[#00ffcc]">
-                > connection_established: true
+                &gt; connection_established: true
               </div>
             </div>
 
