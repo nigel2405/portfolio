@@ -1,0 +1,40 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { projects } from '../../data/projects';
+import { ArrowUpRight } from 'lucide-react';
+---
+
+<Layout title="Projects | Nigel Shivalkar">
+  <main class="w-full max-w-7xl mx-auto px-4 py-32">
+    <div class="mb-16 max-w-2xl">
+      <h1 class="text-5xl font-extrabold text-text-main mb-6 tracking-tight">Featured Projects</h1>
+      <p class="text-xl text-text-muted font-light leading-relaxed">
+        A deep dive into my recent work, exploring full-stack engineering, IoT hardware integration, and scalable mobile development.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projects.map((project) => (
+        <a href={`/projects/${project.slug}`} class="glass-panel p-8 glass-panel-hover flex flex-col justify-between group rounded-3xl h-full block cursor-pointer transition-all duration-300">
+          <div>
+            <div class="flex flex-wrap gap-2 mb-6">
+              {project.techStack.slice(0, 3).map(tech => (
+                <span class="text-xs font-semibold px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full">{tech}</span>
+              ))}
+              {project.techStack.length > 3 && (
+                <span class="text-xs font-semibold px-3 py-1 bg-glass-bg text-text-muted border border-glass-border rounded-full">+{project.techStack.length - 3}</span>
+              )}
+            </div>
+            <h2 class="text-2xl font-bold text-text-main mb-4 group-hover:text-primary transition-colors">{project.title}</h2>
+            <p class="text-text-muted text-sm font-light leading-relaxed mb-8">
+              {project.shortDescription}
+            </p>
+          </div>
+          <div class="flex items-center text-primary font-medium text-sm gap-2">
+            View Case Study <ArrowUpRight size={16} class="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+          </div>
+        </a>
+      ))}
+    </div>
+  </main>
+</Layout>

@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Mail, MapPin, Linkedin, Send } from 'lucide-react';
+---
+
+<Layout title="Contact | Nigel Shivalkar">
+  <main class="w-full max-w-6xl mx-auto px-4 py-32 flex flex-col md:flex-row gap-16 min-h-[80vh] items-center">
+    
+    <div class="flex-1">
+      <h1 class="text-5xl md:text-6xl font-extrabold text-text-main mb-6 tracking-tight">Let's Talk</h1>
+      <p class="text-xl text-text-muted font-light leading-relaxed mb-12 max-w-md">
+        I'm currently looking for new opportunities. Whether you have a question or just want to say hi, my inbox is always open.
+      </p>
+
+      <div class="space-y-8">
+        <div class="flex items-center gap-6">
+          <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+            <Mail size={24} />
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-text-main uppercase tracking-wider mb-1">Email</h4>
+            <a href="mailto:nigelshivalkar6@gmail.com" class="text-lg text-text-muted hover:text-primary transition-colors">nigelshivalkar6@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-6">
+          <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+            <MapPin size={24} />
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-text-main uppercase tracking-wider mb-1">Location</h4>
+            <p class="text-lg text-text-muted">Sindhudurg, Maharashtra</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-6">
+          <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+            <Linkedin size={24} />
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-text-main uppercase tracking-wider mb-1">LinkedIn</h4>
+            <a href="https://www.linkedin.com/in/nigel-shivalkar-250608372" target="_blank" class="text-lg text-text-muted hover:text-primary transition-colors">Connect with me</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="flex-1 w-full">
+      <form class="glass-panel p-8 md:p-10 rounded-3xl space-y-6" onsubmit="event.preventDefault();">
+        <h2 class="text-2xl font-bold text-text-main mb-6">Send a Message</h2>
+        
+        <div>
+          <label class="block text-sm font-medium text-text-main mb-2">Name</label>
+          <input type="text" class="w-full bg-white/5 dark:bg-black/20 border border-glass-border rounded-xl px-4 py-3 text-text-main focus:outline-none focus:border-primary transition-colors" placeholder="John Doe" />
+        </div>
+        
+        <div>
+          <label class="block text-sm font-medium text-text-main mb-2">Email</label>
+          <input type="email" class="w-full bg-white/5 dark:bg-black/20 border border-glass-border rounded-xl px-4 py-3 text-text-main focus:outline-none focus:border-primary transition-colors" placeholder="john@company.com" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-text-main mb-2">Message</label>
+          <textarea rows="4" class="w-full bg-white/5 dark:bg-black/20 border border-glass-border rounded-xl px-4 py-3 text-text-main focus:outline-none focus:border-primary transition-colors resize-none" placeholder="Hello Nigel, I'd like to discuss..."></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-primary text-white font-medium py-3 px-6 rounded-xl hover:bg-secondary transition-all flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:shadow-primary/40">
+          Send Message <Send size={18} />
+        </button>
+      </form>
+    </div>
+
+  </main>
+</Layout>

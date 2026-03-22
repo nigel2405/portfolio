@@ -1,0 +1,74 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { projects } from '../../data/projects';
+import { Github, ExternalLink, ArrowLeft } from 'lucide-react';
+
+export function getStaticPaths() {
+  return projects.map(project => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<Layout title={`${project.title} | Nigel Shivalkar`}>
+  <main class="w-full max-w-4xl mx-auto px-4 py-32">
+    <a href="/projects" class="inline-flex items-center gap-2 text-text-muted hover:text-primary transition-colors mb-12 font-medium">
+      <ArrowLeft size={18} /> Back to Projects
+    </a>
+
+    <div class="mb-12">
+      <h1 class="text-4xl md:text-6xl font-extrabold text-text-main mb-6 tracking-tight leading-tight">{project.title}</h1>
+      <div class="flex flex-wrap gap-4 mb-8">
+        <a href={project.githubUrl} target="_blank" rel="noreferrer" class="flex items-center gap-2 px-6 py-3 bg-glass-bg border border-glass-border hover:border-text-muted rounded-full transition-colors text-text-main font-medium">
+          <Github size={18} /> Source Code
+        </a>
+        {project.liveUrl && (
+          <a href={project.liveUrl} target="_blank" rel="noreferrer" class="flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full hover:bg-secondary transition-colors font-medium shadow-md">
+            <ExternalLink size={18} /> Live Demo
+          </a>
+        )}
+      </div>
+    </div>
+
+    <!-- Tech Stack -->
+    <section class="mb-16">
+      <h2 class="text-sm font-bold text-text-main mb-4 uppercase tracking-widest text-primary">Tech Stack</h2>
+      <div class="flex flex-wrap gap-2">
+        {project.techStack.map(tech => (
+          <span class="px-4 py-2 bg-glass-bg border border-glass-border text-text-main rounded-lg font-medium">{tech}</span>
+        ))}
+      </div>
+    </section>
+
+    <!-- Overview -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-bold text-text-main mb-6">Overview</h2>
+      <p class="text-lg text-text-muted leading-relaxed font-light">
+        {project.fullDescription}
+      </p>
+    </section>
+
+    <!-- Features -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-bold text-text-main mb-6">Key Features</h2>
+      <ul class="space-y-4">
+        {project.features.map(feature => (
+          <li class="flex items-start gap-3 text-lg text-text-muted font-light">
+            <span class="text-primary mt-1">▹</span> {feature}
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- Challenges -->
+    <section class="mb-16 glass-panel p-8 md:p-12 rounded-[2rem]">
+      <h2 class="text-2xl font-bold text-text-main mb-4">Challenges & Learnings</h2>
+      <p class="text-lg text-text-muted leading-relaxed font-light italic">
+        "{project.challenges}"
+      </p>
+    </section>
+  </main>
+</Layout>

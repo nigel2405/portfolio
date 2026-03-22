@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 export default function BentoGridDashboard({ children }) {
   return (
     <motion.section 
-      className="w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[minmax(200px,auto)]"
+      className="w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 lg:gap-10 auto-rows-[minmax(200px,auto)]"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-50px" }}
@@ -33,7 +33,7 @@ export const BentoCard = ({ children, className = "", delay = 0 }) => {
       className={`glass-panel glass-panel-hover overflow-hidden relative ${className}`}
     >
       <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
-      <div className="relative p-6 h-full flex flex-col z-10">
+      <div className="relative p-8 lg:p-10 h-full flex flex-col z-10">
         {children}
       </div>
     </motion.div>

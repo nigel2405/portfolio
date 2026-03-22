@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Download, GraduationCap, Briefcase, Code } from 'lucide-react';
+---
+
+<Layout title="About | Nigel Shivalkar">
+  <main class="w-full max-w-4xl mx-auto px-4 py-32">
+    <div class="mb-16">
+      <h1 class="text-5xl md:text-7xl font-extrabold text-text-main mb-6 tracking-tight">About Me</h1>
+      <p class="text-xl text-text-muted font-light leading-relaxed mb-8">
+        I am a Final-year B.Sc. Computer Science student at the University of Mumbai, specializing in full-stack MERN applications, Data Analytics, and IoT-based systems.
+      </p>
+      <a href="/resume.pdf" download class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full font-medium hover:bg-secondary transition-colors shadow-md">
+        <Download size={18} /> Download Full Resume
+      </a>
+    </div>
+
+    <!-- Education & Experience -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+      <section class="glass-panel p-8 rounded-3xl">
+        <div class="flex items-center gap-3 mb-6 relative z-10">
+          <GraduationCap class="text-primary" size={24} />
+          <h2 class="text-2xl font-bold text-text-main">Education</h2>
+        </div>
+        <div class="space-y-6 relative z-10">
+          <div>
+            <h3 class="text-lg font-bold text-text-main">B.Sc. in Computer Science</h3>
+            <p class="text-text-muted">University of Mumbai | 2023 – 2026 (Final Year)</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-text-main">Higher Secondary Education</h3>
+            <p class="text-text-muted">Passed with 69.67%</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="glass-panel p-8 rounded-3xl">
+        <div class="flex items-center gap-3 mb-6 relative z-10">
+          <Briefcase class="text-primary" size={24} />
+          <h2 class="text-2xl font-bold text-text-main">Certifications</h2>
+        </div>
+        <ul class="space-y-4 relative z-10 text-text-muted">
+          <li class="flex items-start gap-2"><span class="text-primary">▹</span> Cloud Computing Fundamentals - IBM</li>
+          <li class="flex items-start gap-2"><span class="text-primary">▹</span> Project Management - IBM</li>
+          <li class="flex items-start gap-2"><span class="text-primary">▹</span> Cybersecurity - IBM</li>
+          <li class="flex items-start gap-2"><span class="text-primary">▹</span> Digital 101 Journey - NASSCOM</li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- Technical Skills -->
+    <section>
+      <div class="flex items-center gap-3 mb-8">
+        <Code class="text-primary" size={28} />
+        <h2 class="text-3xl font-bold text-text-main">Technical Arsenal</h2>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div class="glass-panel p-6 rounded-2xl">
+          <h3 class="font-bold text-text-main mb-4 border-b border-glass-border pb-2">Languages & Frameworks</h3>
+          <p class="text-text-muted leading-relaxed">React.js, Node.js, Express.js, Python, Java, JavaScript, HTML/CSS.</p>
+        </div>
+        <div class="glass-panel p-6 rounded-2xl">
+          <h3 class="font-bold text-text-main mb-4 border-b border-glass-border pb-2">Databases & Tools</h3>
+          <p class="text-text-muted leading-relaxed">MongoDB, MySQL, Git, GitHub, Docker, Ngrok, VS Code.</p>
+        </div>
+        <div class="glass-panel p-6 rounded-2xl sm:col-span-2">
+          <h3 class="font-bold text-text-main mb-4 border-b border-glass-border pb-2">Data Analytics</h3>
+          <p class="text-text-muted leading-relaxed">Microsoft Excel, Power BI, Data Cleaning, Pivot Tables, Pandas, NumPy, Matplotlib.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
